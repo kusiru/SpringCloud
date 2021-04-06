@@ -23,6 +23,12 @@ public class PaymentController {
     @Value("${server.port}")
     private String serverPort;
 
+
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentLB() {
+        return  serverPort;
+    }
+
     /**
      * 创建用户
      * @param id

@@ -1,0 +1,26 @@
+server:
+  port: 80
+
+#spring:
+#  application:
+#    name: cloud-order-service
+
+eureka:
+  client:
+    #表示是否将自己注册进eurekaServer 默认为true
+    register-with-eureka: false
+    #是否从eurekaServer抓取已有的注册信息，默认为tru。单节点无所谓，集群必须设置为true才能配合
+#    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+#      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+
+
+ribbon:
+  # 指的是建立连接后从服务端读取到可用资源所用的时间
+  ReadTimeout: 5000
+  # 指的是建立连接所用的时间，适用于网络状况正常的情况下，两端连接所用的时间
+  ConnectTimeout: 5000
+feign:
+  hystrix:
+    enabled: true

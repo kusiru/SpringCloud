@@ -1,0 +1,23 @@
+server:
+  port: 3377
+
+spring:
+  application:
+    name: nacos-config
+  cloud:
+    nacos:
+      discovery:
+        # nacos服务注册中心
+        server-addr: 42.193.176.54:8849
+#        server-addr: 47.115.60.78:8848
+      config:
+        server-addr: 42.193.176.54:8849 # 将nacos作为配置中心地址
+        file-extension: yml
+#        group: dev
+#        namespace: 17560f02-7e28-4dee-836c-a3b684d92293
+# ${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
